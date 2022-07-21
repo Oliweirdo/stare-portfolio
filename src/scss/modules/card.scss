@@ -1,0 +1,222 @@
+.bubble {
+  width: 600px;
+  height: auto;
+  background: rgba(222, 121, 166, 0.4);
+  text-align: right;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation-name: BorderRadius;
+  animation-duration: 13s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  box-shadow: 15px 15px 50px rgba(222, 121, 166, 0.4);
+}
+
+@keyframes BorderRadius {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 15px 15px 50px rgba(222, 121, 166, 0.4);
+  }
+
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    box-shadow: -10px -5px 50px rgba(222, 121, 166, 0.4);
+  }
+
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 916px;
+  width: calc(100% - 20px);
+}
+
+#cards:hover>.card::after {
+  opacity: 1;
+}
+
+.card {
+  background-color: $bgcolor;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  height: 260px;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
+  box-shadow: 0 19px 38px rgba(222, 121, 166, 0.4), 0 15px 12px rgba(222, 121, 166, 0.4);
+
+  @media (max-width: 500px) {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.card:hover::before {
+  opacity: 1;
+  box-shadow: 0 19px 38px rgba(222, 121, 166, 0.4), 0 15px 12px rgba(222, 121, 166, 0.4);
+}
+
+
+.card::before,
+.card::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.card::before {
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(222, 121, 166, 0.4),
+      transparent 40%);
+  z-index: 3;
+}
+
+.card::after {
+  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(222, 121, 166, 0.4),
+      transparent 40%);
+  z-index: 1;
+}
+
+.card>.card-content {
+  background-color: var(--card-color);
+  border-radius: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  inset: 1px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+/* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
+
+h1,
+h2,
+h3,
+h4,
+span {
+  color: rgba(222, 121, 166, 0.7);
+  font-family: 'Share Tech Mono',
+    monospace;
+  font-weight: 400;
+  margin: 0px;
+}
+
+i {
+  color: rgb(250, 157, 199);
+}
+
+.card-image {
+  align-items: center;
+  display: flex;
+  height: 140px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-image>i {
+  font-size: 6em;
+  opacity: 0.25;
+}
+
+.card-info-wrapper {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  padding: 0px 20px;
+}
+
+.card-info {
+  align-items: flex-start;
+  display: flex;
+  gap: 10px;
+}
+
+.card-info>i {
+  font-size: 1em;
+  height: 20px;
+  line-height: 20px;
+}
+
+.card-info-title>h3 {
+  font-size: 1.1em;
+  line-height: 20px;
+}
+
+.card-info-title>h4 {
+  color: rgba(222, 121, 166, 0.4);
+  font-size: 0.85em;
+  margin-top: 8px;
+}
+
+/* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
+
+@media(max-width: 1000px) {
+  body {
+    align-items: flex-start;
+    overflow: auto;
+  }
+
+  #cards {
+    max-width: 1000px;
+    padding: 10px 0px;
+  }
+
+  .card {
+    flex-shrink: 1;
+    width: calc(50% - 4px);
+  }
+}
+
+@media(max-width: 500px) {
+  .card {
+    width: 350px;
+    padding-bottom: 15px;
+    display: block;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+
+  .card-image>i {
+    font-size: 4em;
+  }
+
+  .card-info-wrapper {
+    padding: 0px 10px;
+  }
+
+  .card-info>i {
+    font-size: 1em;
+  }
+
+  .card-info-title>h3 {
+    font-size: 0.9em;
+  }
+
+  .card-info-title>h4 {
+    font-size: 1em;
+    margin-top: 4px;
+  }
+}
