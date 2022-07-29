@@ -112,6 +112,13 @@ section h1 {
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+
+  @media (max-width: 500px) {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+
+  }
+
 }
 
 // NAVBAR
