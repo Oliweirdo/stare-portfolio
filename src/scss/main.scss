@@ -52,9 +52,16 @@ body {
   @media (max-width: 500px) {
     box-shadow: none;
     padding-top: 100px;
-    min-height: 200vh;
+    min-height: 150vh;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+#about {
+  @media (max-width: 500px) {
+    min-height: 130vh;
+    padding-bottom: 200px;
   }
 }
 
@@ -79,6 +86,24 @@ i {
   padding-top: 10px;
   padding-bottom: 20px;
   font-family: inherit;
+}
+
+.skills__title {
+  padding-top: 50px;
+  max-width: 782px;
+  font-weight: 300;
+  font-size: 50px;
+  line-height: 40px;
+  text-align: center;
+
+  margin: 0;
+
+  @media screen and (max-width: 750px) {
+    max-width: 300px;
+    font-size: 50px;
+    line-height: 32px;
+    margin: 0;
+  }
 }
 
 .grid {
@@ -136,21 +161,6 @@ i {
 
 }
 
-// NAVBAR
-
-li {
-  list-style: none;
-}
-
-a {
-  color: var(--pink);
-  text-decoration: none;
-  transition: 0.7s ease;
-
-  &:hover {
-    color: rgb(156, 104, 130);
-  }
-}
 
 
 
@@ -286,6 +296,7 @@ a {
   }
 
   &-item {
+    font-size: 20px;
     color: rgb(148, 95, 135);
 
     @media (max-width: 786px) {
